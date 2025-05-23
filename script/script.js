@@ -117,6 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (active) {
     renderPrice(active.dataset.source, container);
   }
+
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 });
 
 function renderPrice(source, container) {
