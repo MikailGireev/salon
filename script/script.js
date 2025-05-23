@@ -124,6 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
   burger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
+
+  // Горизонтальный слайдер управления
+  const wrapper = document.querySelector('.slider-wrapper');
+  const scrollAmount = 160; // ширина одного item с отступом
+
+  document.getElementById('slideLeft').addEventListener('click', () => {
+    wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  document.getElementById('slideRight').addEventListener('click', () => {
+    wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 });
 
 function renderPrice(source, container) {
