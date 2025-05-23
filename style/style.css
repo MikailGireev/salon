@@ -202,7 +202,8 @@ nav a:hover {
 /* Услуга и цена */
 .price-block li {
   padding: 6px 0;
-  color: #000;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
   font-size: 16px;
   display: flex;
   justify-content: space-between;
@@ -210,7 +211,8 @@ nav a:hover {
 }
 
 .price-block li strong {
-  color: #333;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* Галерея */
