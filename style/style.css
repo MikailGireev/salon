@@ -346,7 +346,7 @@ footer {
   }
 
   .nav-links {
-    position: absolute;
+    position: fixed;
     top: 60px;
     right: 0;
     background-color: white;
