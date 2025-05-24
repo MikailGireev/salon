@@ -1,3 +1,5 @@
+// script.js
+
 const priceLists = [
   {
     source: 'brows',
@@ -68,33 +70,55 @@ const priceLists = [
   {
     source: 'hijama',
     categories: {
-      'Лечебная хиджама': 1000,
-      'Косметическая хиджама': 1800,
-      'Классический массаж': 1500,
-      'Медовый массаж': 1500,
-      'Лимфодренажный массаж': 1300,
-      'Массаж лица': 1500,
-      'Антицеллюлитный массаж': 2500,
-      'Массаж спины': 800,
-      'Шейно-воротниковая зона': 800,
-      'Расслабляющий массаж': 1500,
-      'Лечебный массаж': 1000,
-      'Общий массаж всего тела + лицо': 2500,
+      Хиджама: {
+        'Лечебная хиджама': 1000,
+        'Косметическая хиджама': 1800,
+        'Классический массаж': 1500,
+        'Медовый массаж': 1500,
+        'Лимфодренажный массаж': 1300,
+        'Массаж лица': 1500,
+        'Антицеллюлитный массаж': 2500,
+        'Массаж спины': 800,
+        'Шейно-воротниковая зона': 800,
+        'Расслабляющий массаж': 1500,
+        'Лечебный массаж': 1000,
+        'Общий массаж всего тела + лицо': 2500,
+      },
     },
   },
   {
     source: 'massage',
     categories: {
-      'Классический массаж': 1500,
-      'Медовый массаж': 1500,
-      'Лимфодренажный массаж': 1300,
-      'Массаж лица': 1500,
-      'Антицеллюлитный массаж': 2500,
-      'Массаж спины': 800,
-      'Шейно-воротниковая зона': 800,
-      'Расслабляющий массаж': 1500,
-      'Лечебный массаж': 1000,
-      'Общий массаж всего тела + лицо': 2500,
+      Массаж: {
+        'Классический массаж': 1500,
+        'Медовый массаж': 1500,
+        'Лимфодренажный массаж': 1300,
+        'Массаж лица': 1500,
+        'Антицеллюлитный массаж': 2500,
+        'Массаж спины': 800,
+        'Шейно-воротниковая зона': 800,
+        'Расслабляющий массаж': 1500,
+        'Лечебный массаж': 1000,
+        'Общий массаж всего тела + лицо': 2500,
+      },
+    },
+  },
+  {
+    source: 'cosmetologist',
+    categories: {
+      // сюда можно добавить категории косметолога
+    },
+  },
+  {
+    source: 'colorist',
+    categories: {
+      // сюда можно добавить категории колориста
+    },
+  },
+  {
+    source: 'nails',
+    categories: {
+      // сюда можно добавить категории педикюра/маникюра
     },
   },
 ];
@@ -103,44 +127,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const services = document.querySelectorAll('.service-item');
   const container = document.querySelector('.service-description');
 
+  // Соответствие source → имя файла фона
+  const bgMap = {
+    brows: 'flowers-1.png',
+    lashes: 'flowers-2.png',
+    hair: 'flowers-3.png',
+    hijama: 'flowers-4.png',
+    massage: 'flowers-5.png',
+    cosmetologist: 'flowers-6.png',
+    colorist: 'flowers-7.png',
+    nails: 'flowers-8.png',
+  };
+
   services.forEach(service => {
     service.addEventListener('click', () => {
+      // 1) Помечаем активную услугу
       services.forEach(s => s.classList.remove('service-item_active'));
       service.classList.add('service-item_active');
 
-      const source = service.dataset.source;
-      renderPrice(source, container);
+      // 2) Меняем фон у контейнера
+      const srcKey = service.dataset.source;
+      const imgFile = bgMap[srcKey] || bgMap.brows;
+      container.style.backgroundImage = `url('../assets/img/${imgFile}')`;
+
+      // 3) Плавно скроллим к прайсу
+      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // 4) Рендерим список услуг (без цены)
+      renderPrice(srcKey, container);
     });
   });
 
+  // Инициализация: эмулируем клик по уже активному элементу
   const active = document.querySelector('.service-item_active');
-  if (active) {
-    renderPrice(active.dataset.source, container);
-  }
+  if (active) active.click();
 
+  // Бургер-меню
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
-
   burger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-  });
-
-  // Горизонтальный слайдер управления
-  const wrapper = document.querySelector('.slider-wrapper');
-  const scrollAmount = 160; // ширина одного item с отступом
-
-  document.getElementById('slideLeft').addEventListener('click', () => {
-    wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-
-  document.getElementById('slideRight').addEventListener('click', () => {
-    wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   });
 });
 
 function renderPrice(source, container) {
   container.innerHTML = '';
-
   const matched = priceLists.find(p => p.source === source);
   if (!matched || !matched.categories) {
     container.textContent = 'Прайс-лист не найден.';
@@ -151,20 +182,20 @@ function renderPrice(source, container) {
     const block = document.createElement('div');
     block.className = 'price-block';
 
+    // Заголовок категории
     const title = document.createElement('h3');
     title.textContent = category;
     block.appendChild(title);
 
+    // Список услуг (только названия)
     const ul = document.createElement('ul');
-    const services = matched.categories[category];
-
-    for (const serviceName in services) {
+    for (const serviceName in matched.categories[category]) {
       const li = document.createElement('li');
       li.innerHTML = `<strong>${serviceName}</strong>`;
       ul.appendChild(li);
     }
-
     block.appendChild(ul);
+
     container.appendChild(block);
   }
 }
