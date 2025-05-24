@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
 }
@@ -191,13 +195,17 @@ header {
 
 .service-description {
   margin-top: 30px;
-  max-width: 900px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   background: url('../assets/img/flowers.png') no-repeat center center/cover;
+}
+
+.slider-btn {
+  display: none;
 }
 
 .price-block {
@@ -432,6 +440,7 @@ footer {
   }
 
   .slider-btn {
+    display: block;
     padding: 6px 14px;
     font-size: 18px;
     background-color: #0033ff;

@@ -159,10 +159,8 @@ function renderPrice(source, container) {
     const services = matched.categories[category];
 
     for (const serviceName in services) {
-      const price = services[serviceName];
-      const isNumeric = typeof price === 'number';
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${serviceName}</strong>: ${price}${isNumeric ? ' ₽' : ''}`;
+      li.innerHTML = `<strong>${serviceName}</strong>`;
       ul.appendChild(li);
     }
 
