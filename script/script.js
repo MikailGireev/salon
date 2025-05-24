@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const srcKey = service.dataset.source;
       const imgFile = bgMap[srcKey] || bgMap.brows;
       container.style.background = `
-  url('/salon/assets/img/${imgFile}')center center/cover no-repeat`;
+  url('../assets/img/${imgFile}')center center/cover no-repeat`;
 
       renderPrice(srcKey, container);
     });
