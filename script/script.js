@@ -146,12 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const srcKey = service.dataset.source;
       const imgFile = bgMap[srcKey] || bgMap.brows;
-      container.style.background = `
-  url('../assets/img/${imgFile}')center center/cover no-repeat`;
+      container.style.background = `url('../assets/img/${imgFile}') center center / cover no-repeat`;
 
       renderPrice(srcKey, container);
     });
   });
+
+  const first = document.querySelector('.service-item_active');
+  if (first) first.click();
 
   // Бургер-меню
   const burger = document.getElementById('burger');
