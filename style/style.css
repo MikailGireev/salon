@@ -327,39 +327,6 @@ header {
   background-color: #ffe600;
 }
 
-.service-description {
-  position: relative; /* для псевдоэлемента */
-  overflow: hidden; /* чтобы размытие не вылезало за углы */
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-/* Убираем фон у самóй секции */
-.service-description {
-  background: none;
-}
-
-/* Псевдоэлемент с фоном и блюром */
-.service-description::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('../assets/img/flowers-1.png') center/cover no-repeat;
-  filter: blur(8px);
-  transform: scale(1.05); /* чуть увеличим, чтобы не было обрезанного размытия по краям */
-  z-index: 1;
-}
-
-/* Содержимое поверх размытого фона */
-.service-description > * {
-  position: relative;
-  z-index: 2;
-}
-
 /* Футер */
 footer {
   background-color: #0033ff;
