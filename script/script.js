@@ -141,19 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   services.forEach(service => {
     service.addEventListener('click', () => {
-      // 1) Помечаем активную услугу
       services.forEach(s => s.classList.remove('service-item_active'));
       service.classList.add('service-item_active');
 
-      // 2) Меняем фон у контейнера
       const srcKey = service.dataset.source;
       const imgFile = bgMap[srcKey] || bgMap.brows;
       container.style.backgroundImage = `url('../assets/img/${imgFile}')`;
 
-      // 3) Плавно скроллим к прайсу
-      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      // 4) Рендерим список услуг (без цены)
       renderPrice(srcKey, container);
     });
   });

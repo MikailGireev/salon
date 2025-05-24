@@ -201,7 +201,6 @@ header {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  background: url('../assets/img/flowers.png') no-repeat center center/cover;
 }
 
 .slider-btn {
