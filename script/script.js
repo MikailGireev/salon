@@ -106,19 +106,19 @@ const priceLists = [
   {
     source: 'cosmetologist',
     categories: {
-      // сюда можно добавить категории косметолога
+      // категории косметолога
     },
   },
   {
     source: 'colorist',
     categories: {
-      // сюда можно добавить категории колориста
+      // категории колориста
     },
   },
   {
     source: 'nails',
     categories: {
-      // сюда можно добавить категории педикюра/маникюра
+      // категории педикюра/маникюра
     },
   },
 ];
@@ -127,31 +127,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const services = document.querySelectorAll('.service-item');
   const container = document.querySelector('.service-description');
 
-  // Соответствие source → имя файла фона
-  const bgMap = {
-    brows: 'flowers-1.png',
-    lashes: 'flowers-2.png',
-    hair: 'flowers-3.png',
-    hijama: 'flowers-4.png',
-    massage: 'flowers-5.png',
-    cosmetologist: 'flowers-6.png',
-    colorist: 'flowers-7.png',
-    nails: 'flowers-8.png',
-  };
-
   services.forEach(service => {
     service.addEventListener('click', () => {
+      // 1. Активный таб
       services.forEach(s => s.classList.remove('service-item_active'));
       service.classList.add('service-item_active');
 
-      const srcKey = service.dataset.source;
-      const imgFile = bgMap[srcKey] || bgMap.brows;
-      container.style.background = `url('../assets/img/${imgFile}') center center / cover no-repeat`;
+      // 2. Сбросить все bg-... классы
+      container.className = 'service-description';
 
-      renderPrice(srcKey, container);
+      // 3. Добавить новый класс bg-<source>
+      const key = service.dataset.source;
+      container.classList.add(`bg-${key}`);
+
+      // 4. Отрисовать список услуг
+      renderPrice(key, container);
     });
   });
 
+  // Инициализация при загрузке
   const first = document.querySelector('.service-item_active');
   if (first) first.click();
 
@@ -175,16 +169,14 @@ function renderPrice(source, container) {
     const block = document.createElement('div');
     block.className = 'price-block';
 
-    // Заголовок категории
     const title = document.createElement('h3');
     title.textContent = category;
     block.appendChild(title);
 
-    // Список услуг (только названия)
     const ul = document.createElement('ul');
-    for (const serviceName in matched.categories[category]) {
+    for (const name in matched.categories[category]) {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${serviceName}</strong>`;
+      li.innerHTML = `<strong>${name}</strong>`;
       ul.appendChild(li);
     }
     block.appendChild(ul);
