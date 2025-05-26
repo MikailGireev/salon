@@ -186,6 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
   burger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
+
+  const wrapper = document.querySelector('.slider-wrapper');
+  const slideLeft = document.getElementById('slideLeft');
+  const slideRight = document.getElementById('slideRight');
+  const scrollAmount = 150; // примерно ширина одного .service-item + gap
+
+  slideLeft.addEventListener('click', () => {
+    wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  slideRight.addEventListener('click', () => {
+    wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 });
 
 function renderPrice(source, container) {
