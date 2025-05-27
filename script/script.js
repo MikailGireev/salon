@@ -155,7 +155,7 @@ const priceLists = [
   },
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', e => {
   const services = document.querySelectorAll('.service-item');
   const container = document.querySelector('.service-description');
 
@@ -178,8 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
-  burger.addEventListener('click', () => {
+  burger.addEventListener('click', e => {
     navLinks.classList.toggle('active');
+  });
+
+  const links = document.querySelectorAll('.nav-link');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
   });
 
   const wrapper = document.querySelector('.slider-wrapper');
@@ -215,11 +222,19 @@ function renderPrice(source, container) {
     const ul = document.createElement('ul');
     for (const name in matched.categories[category]) {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${name}</strong>`;
+
+      if (name.includes('(')) {
+        const main = name.substring(0, name.indexOf('(')).trim();
+        const desc = name.substring(name.indexOf('(')).trim();
+        li.innerHTML = `<strong>${main}</strong> <span>${desc}</span>`;
+      } else {
+        li.innerHTML = `<strong>${name}</strong>`;
+      }
+
       ul.appendChild(li);
     }
-    block.appendChild(ul);
 
+    block.appendChild(ul);
     container.appendChild(block);
   }
 }
