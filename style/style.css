@@ -94,7 +94,7 @@ header {
 
 /* Главный экран */
 .hero {
-  background: url('../assets/img/modern.png') no-repeat center center;
+  background: url('../assets/img/home.png') no-repeat center center;
   background-size: cover;
   position: relative;
   height: 100vh;
@@ -352,28 +352,28 @@ header {
 
 /* Привязка фонов к классам услуг */
 .service-description.bg-brows {
-  background: url('../assets/img/flowers-1.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-1.png') center center / cover no-repeat;
 }
 .service-description.bg-lashes {
-  background: url('../assets/img/flowers-2.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-2.png') center center / cover no-repeat;
 }
 .service-description.bg-hair {
-  background: url('../assets/img/flowers-3.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-3.png') center center / cover no-repeat;
 }
 .service-description.bg-hijama {
-  background: url('../assets/img/flowers-4.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-4.png') center center / cover no-repeat;
 }
 .service-description.bg-massage {
-  background: url('../assets/img/flowers-5.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-5.png') center center / cover no-repeat;
 }
 .service-description.bg-cosmetologist {
-  background: url('../assets/img/flowers-6.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-6.png') center center / cover no-repeat;
 }
 .service-description.bg-colorist {
-  background: url('../assets/img/flowers-7.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-7.png') center center / cover no-repeat;
 }
 .service-description.bg-nails {
-  background: url('../assets/img/flowers-8.png') center center / cover no-repeat;
+  background: url('../assets/img/flowers/flowers-8.png') center center / cover no-repeat;
 }
 
 /* Футер */
