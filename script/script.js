@@ -161,27 +161,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   services.forEach(service => {
     service.addEventListener('click', () => {
-      // 1. Активный таб
       services.forEach(s => s.classList.remove('service-item_active'));
       service.classList.add('service-item_active');
 
-      // 2. Сбросить все bg-... классы
       container.className = 'service-description';
 
-      // 3. Добавить новый класс bg-<source>
       const key = service.dataset.source;
       container.classList.add(`bg-${key}`);
 
-      // 4. Отрисовать список услуг
       renderPrice(key, container);
     });
   });
 
-  // Инициализация при загрузке
   const first = document.querySelector('.service-item_active');
   if (first) first.click();
 
-  // Бургер-меню
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => {
@@ -191,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.slider-wrapper');
   const slideLeft = document.getElementById('slideLeft');
   const slideRight = document.getElementById('slideRight');
-  const scrollAmount = 150; // примерно ширина одного .service-item + gap
+  const scrollAmount = 150;
 
   slideLeft.addEventListener('click', () => {
     wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
