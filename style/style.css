@@ -450,6 +450,13 @@ footer {
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
+.footer-logo {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+}
+
 /* Блок контактов */
 .contact-block {
   background: rgba(255, 255, 255, 0.12);
