@@ -610,35 +610,32 @@ footer {
 
   .hero-subtitle {
     font-size: 32px;
-    color: #ffcc00;
+    color: #000000;
     margin-bottom: 12px;
-    letter-spacing: 3px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     text-align: center;
-    font-weight: 600; /* чуть легче */
+    font-weight: 600;
     font-family: 'Arial', sans-serif;
-    text-shadow: 1px 1px 3px rgba(255, 204, 0, 0.5);
   }
 
   .hero-subtitle .highlight {
-    color: #0033ff;
-    text-shadow: 1px 1px 4px rgba(0, 51, 255, 0.5);
+    color: #000000;
   }
 
   .hero h1 {
     font-size: 44px;
-    color: #fff;
+    color: #ffffff;
     margin-top: 0;
     text-align: center;
     line-height: 1.2;
-    font-weight: 500; /* более легкий */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    font-family: 'Arial', sans-serif;
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* Чтобы и h2, и h1 были по центру */
   .hero .container {
     max-width: 600px;
     margin: 0 auto;
