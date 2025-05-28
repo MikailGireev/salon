@@ -1,3 +1,9 @@
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #222;
+}
+
 /* Общие стили */
 * {
   margin: 0;
@@ -49,9 +55,9 @@ header {
   gap: 12px;
 }
 
+/* Общие стили изображения логотипа */
 .logo-img {
-  width: 48px;
-  height: 48px;
+  width: 150px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   object-fit: cover;
@@ -70,6 +76,16 @@ header {
   font-size: 22px;
   font-weight: 800;
   color: #0033ff;
+}
+
+.logo-desktop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mobile {
+  display: none;
 }
 
 /* Навигация */
@@ -426,6 +442,14 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+.footer-bottom {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #e0e7ff;
+  opacity: 0.7;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
 /* Блок контактов */
 .contact-block {
   background: rgba(255, 255, 255, 0.12);
@@ -503,6 +527,17 @@ footer {
 
 @media (max-width: 768px) {
   .header-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-desktop {
+    display: none;
+  }
+
+  .logo-mobile {
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
   }

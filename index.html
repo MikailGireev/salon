@@ -6,15 +6,26 @@
     <title>Салон красоты «ДИВА»</title>
     <link rel="icon" href="./assets/img/logo.png" type="image/png" />
     <link rel="stylesheet" href="./style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet" />
   </head>
   <body>
     <header class="header">
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <img class="logo-img" src="./assets/img/logo.png" alt="Logo" />
-            <span class="logo-text">ДИВА</span>
+            <div class="logo-mobile">
+              <img class="logo-img" src="./assets/img/logo.png" alt="Logo" />
+              <span class="logo-text">ДИВА</span>
+            </div>
+            <div class="logo-desktop">
+              <img class="logo-img" src="./assets/img/logo_v.1.png" alt="Logo Mobile" />
+            </div>
           </div>
+
           <div class="nav">
             <div class="burger" id="burger">
               <span></span>
@@ -92,43 +103,47 @@
 
     <footer id="contact">
       <div class="container footer-container">
-        <div class="footer-info">
-          <p>САЛОН КРАСОТЫ «ДИВА»</p>
-          <p>Тел: +7 (928)792-13-33</p>
-          <p>Адрес: ул. Осканова, 102, Назрань, Респ. Ингушетия, 386101</p>
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img class="logo-img" src="./assets/img/logo.png" alt="Логотип ДИВА" />
+          </div>
+
+          <div class="footer-extra">
+            <div class="contact-block whatsapp-qr">
+              <img src="./assets/img/contact/whatsapp.jpg" alt="WhatsApp QR" />
+              <p>Сканируйте для WhatsApp</p>
+              <p>+7 (928)792-13-33</p>
+            </div>
+
+            <div class="contact-block instagram">
+              <a
+                href="https://www.instagram.com/salon_ddiva?igsh=MXA5MHdlMTFzZXBwMg%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="./assets/img/contact/instagram.svg"
+                  alt="Instagram"
+                  class="instagram-icon" />
+                @salon_ddiva
+              </a>
+            </div>
+
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.095645891768!2d44.75992017563366!3d43.228454279799415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40506ee8c3c13287%3A0xe18b4a1b267b1106!2z0YPQuy4g0J7RgdC60LDQvdC-0LLQsCwgMTA4LCDQndCw0LfRgNCw0L3RjCwgNDA2MTEx!5e0!3m2!1sru!2sru!4v1748263796200!5m2!1sru!2sru"
+                width="100%"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
         </div>
 
-        <div class="footer-extra">
-          <div class="contact-block whatsapp-qr">
-            <img src="./assets/img/contact/whatsapp.jpg" alt="WhatsApp QR" />
-            <p>Сканируйте для WhatsApp</p>
-            <p>+7 (928)792-13-33</p>
-          </div>
-
-          <div class="contact-block instagram">
-            <a
-              href="https://www.instagram.com/salon_ddiva?igsh=MXA5MHdlMTFzZXBwMg%3D%3D&utm_source=qr"
-              target="_blank"
-              rel="noopener">
-              <img
-                src="./assets/img/contact/instagram.svg"
-                alt="Instagram"
-                class="instagram-icon" />
-              @salon_ddiva
-            </a>
-          </div>
-
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.095645891768!2d44.75992017563366!3d43.228454279799415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40506ee8c3c13287%3A0xe18b4a1b267b1106!2z0YPQuy4g0J7RgdC60LDQvdC-0LLQsCwgMTA4LCDQndCw0LfRgNCw0L3RjCwgNDA2MTEx!5e0!3m2!1sru!2sru!4v1748263796200!5m2!1sru!2sru"
-              width="100%"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
+        <div class="footer-bottom">
+          <p>Адрес: ул. Осканова, 102, Назрань, Республика Ингушетия, 386101</p>
         </div>
       </div>
     </footer>
